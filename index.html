@@ -1,18 +1,3 @@
-An `index.html` file has been created for your project report. You can download it by clicking the button below.
-
-**To complete the setup, follow these two steps:**
-
-1.  **Download the Images**: The images from your PDF have been extracted. Download the `images.zip` folder, unzip it, and place the `images` folder in the same directory as your `index.html` file.
-
-    [Download images.zip](https://www.google.com/search?q=data:application/zip%3Bbase64,UklGRvr/FwA%3D)
-
-2.  **Update Placeholders**: Open the `index.html` file in a text editor and replace the placeholder information in the footer (email, phone number, and GitHub profile link) with your actual details.
-
-This webpage is fully responsive, includes interactive elements, and is styled with a professional, scientific theme as you requested.
-
-**index.html**
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,9 +10,10 @@ This webpage is fully responsive, includes interactive elements, and is styled w
             --primary-color: #1a5f7a; /* Deep Blue */
             --secondary-color: #159895; /* Teal Green */
             --accent-color: #57c5b6; /* Lighter Teal */
-            --text-color: #333;
-            --bg-color: #ffffff;
-            --section-bg: #f4f9f9;
+            --text-color: #1a5f7a; /* Deep Blue for Text */
+            --bg-color: #eaf4f8; /* Light Blue Background */
+            --section-bg: #eaf4f8; /* Light Blue Background for all sections */
+            --border-color: #cde3ed; /* Light Blue Border */
             --header-font: 'Arial', sans-serif;
             --body-font: 'Georgia', serif;
         }
@@ -45,18 +31,14 @@ This webpage is fully responsive, includes interactive elements, and is styled w
             padding: 0;
         }
 
-        /* Navigation Bar */
+        /* Navigation Bar Styling */
         .navbar {
-            background-color: rgba(26, 95, 122, 0.9);
-            backdrop-filter: blur(10px);
             padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
             width: 100%;
             z-index: 1000;
             display: flex;
             justify-content: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-top: 2rem; /* Spacing from hero details */
         }
 
         .nav-links {
@@ -65,6 +47,8 @@ This webpage is fully responsive, includes interactive elements, and is styled w
             padding: 0;
             display: flex;
             gap: 1.5rem;
+            flex-wrap: wrap; /* Allow links to wrap on smaller screens */
+            justify-content: center;
         }
 
         .nav-links a {
@@ -75,6 +59,7 @@ This webpage is fully responsive, includes interactive elements, and is styled w
             padding: 0.5rem 0;
             position: relative;
             transition: color 0.3s;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Add shadow for readability */
         }
 
         .nav-links a::after {
@@ -98,12 +83,12 @@ This webpage is fully responsive, includes interactive elements, and is styled w
 
         /* Hero Section */
         .hero {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/background.jpg');
+            background-image: linear-gradient(rgba(26, 95, 122, 0.7), rgba(26, 95, 122, 0.7)), url('images/background.jpg');
             background-size: cover;
             background-position: center;
             color: white;
             text-align: center;
-            padding: 6rem 2rem;
+            padding: 4rem 2rem; /* Adjusted padding */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -132,6 +117,11 @@ This webpage is fully responsive, includes interactive elements, and is styled w
             max-width: 1100px;
             margin: 0 auto;
             padding: 4rem 2rem;
+            background-color: white; /* Give sections a white card effect */
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.05);
         }
 
         section {
@@ -145,10 +135,6 @@ This webpage is fully responsive, includes interactive elements, and is styled w
             transform: translateY(0);
         }
 
-        section:nth-of-type(odd) {
-            background-color: var(--section-bg);
-        }
-
         h2 {
             font-family: var(--header-font);
             font-size: 2.5rem;
@@ -156,6 +142,12 @@ This webpage is fully responsive, includes interactive elements, and is styled w
             text-align: center;
             margin-bottom: 3rem;
             position: relative;
+        }
+        
+        h3 {
+             font-family: var(--header-font);
+             color: var(--primary-color);
+             margin-top: 2.5rem;
         }
 
         h2::after {
@@ -168,7 +160,7 @@ This webpage is fully responsive, includes interactive elements, and is styled w
         }
 
         /* Abstract Section */
-        #abstract p {
+        #abstract p, #introduction p, #methodology p, #results p, #discussion p, #conclusion p, #scope p {
             font-size: 1.1rem;
             text-align: justify;
         }
@@ -181,7 +173,7 @@ This webpage is fully responsive, includes interactive elements, and is styled w
         .methodology-flow {
             display: flex;
             justify-content: space-around;
-            align-items: center;
+            align-items: flex-start; /* Align items to the top */
             flex-wrap: wrap;
             gap: 1.5rem;
             margin-top: 3rem;
@@ -191,6 +183,7 @@ This webpage is fully responsive, includes interactive elements, and is styled w
             display: flex;
             flex-direction: column;
             align-items: center;
+            width: 150px; /* Fixed width for alignment */
         }
         .step-icon {
             font-size: 3rem;
@@ -201,25 +194,28 @@ This webpage is fully responsive, includes interactive elements, and is styled w
             font-family: var(--header-font);
             font-weight: bold;
             color: var(--primary-color);
+            height: 40px; /* Set a fixed height */
         }
         .arrow {
             font-size: 2.5rem;
             color: var(--accent-color);
             align-self: center;
+            margin-top: 1.5rem; /* Adjust arrow position */
         }
 
         /* Results Section */
         .results-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
         }
         .gallery-item {
-            border: 1px solid #ddd;
+            border: 1px solid var(--border-color); 
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0,0,0,0.05);
             transition: transform 0.3s, box-shadow 0.3s;
+            background-color: white;
         }
         .gallery-item:hover {
             transform: translateY(-5px);
@@ -235,15 +231,32 @@ This webpage is fully responsive, includes interactive elements, and is styled w
             padding: 1rem;
             font-size: 0.9rem;
             text-align: center;
-            background-color: #f9f9f9;
+            background-color: white; /* Removed final grey color */
         }
+        
+        /* Special styling for the bar plot */
+        .bar-plot-item {
+            grid-column: 1 / -1; /* Make item span full width of the grid */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+        .bar-plot-item img {
+            max-width: 80%; /* Control the size */
+            height: auto;
+            margin: 0 auto; /* Center the image */
+        }
+
         .results-table table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 2rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
         }
         .results-table th, .results-table td {
-            border: 1px solid #ddd;
+            border: 1px solid var(--border-color); 
             padding: 12px;
             text-align: left;
         }
@@ -252,7 +265,7 @@ This webpage is fully responsive, includes interactive elements, and is styled w
             color: white;
             font-family: var(--header-font);
         }
-
+        
         /* Lightbox for Images */
         .lightbox {
             display: none;
@@ -260,7 +273,7 @@ This webpage is fully responsive, includes interactive elements, and is styled w
             z-index: 2000;
             left: 0; top: 0;
             width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.85);
+            background-color: rgba(26, 95, 122, 0.9); /* Changed from black to primary blue */
             justify-content: center;
             align-items: center;
         }
@@ -286,6 +299,7 @@ This webpage is fully responsive, includes interactive elements, and is styled w
             margin-bottom: 1rem;
             padding-left: 1.5em;
             text-indent: -1.5em;
+            line-height: 1.6;
         }
 
         /* Footer */
@@ -299,7 +313,7 @@ This webpage is fully responsive, includes interactive elements, and is styled w
         .footer-links a {
             color: var(--accent-color);
             text-decoration: none;
-            margin: 0 1rem;
+            margin: 0 0.5rem;
             transition: color 0.3s;
         }
         .footer-links a:hover {
@@ -308,13 +322,8 @@ This webpage is fully responsive, includes interactive elements, and is styled w
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .navbar {
-                padding: 1rem;
-            }
             .nav-links {
-                flex-direction: column;
-                align-items: center;
-                gap: 0.5rem;
+                gap: 0.5rem 1rem; /* Adjust gap for wrapping */
             }
             .hero h1 {
                 font-size: 2.2rem;
@@ -324,6 +333,8 @@ This webpage is fully responsive, includes interactive elements, and is styled w
             }
             .container {
                 padding: 3rem 1rem;
+                margin-top: 1rem;
+                margin-bottom: 1rem;
             }
             h2 {
                 font-size: 2rem;
@@ -335,51 +346,65 @@ This webpage is fully responsive, includes interactive elements, and is styled w
                 transform: rotate(90deg);
                 margin: 1rem 0;
             }
+            .bar-plot-item img {
+                max-width: 100%;
+            }
+            .footer-links {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .footer-links .footer-separator {
+                display: none;
+            }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
-    <nav class="navbar">
-        <ul class="nav-links">
-            <li><a href="#abstract">Abstract</a></li>
-            <li><a href="#introduction">Introduction</a></li>
-            <li><a href="#methodology">Methodology</a></li>
-            <li><a href="#results">Results</a></li>
-            <li><a href="#discussion">Discussion</a></li>
-            <li><a href="#conclusion">Conclusion</a></li>
-            <li><a href="#scope">Enhancements</a></li>
-            <li><a href="#bibliography">Bibliography</a></li>
-        </ul>
-    </nav>
-
+    <!-- Hero Section -->
     <header class="hero">
         <h1>Next-Generation Sequencing-Based Pipeline for Rapid Pathogen Detection and Classification</h1>
         <div class="hero-details">
-            <p><strong>Rakesh Kumar A</strong> (Reg No: 23MSBI123)</p>
-            <p>Under the guidance of <strong>Dr. V. G. Shanmuga Priya</strong></p>
-            <p>Associate Professor, Department of Life Sciences, Garden City University</p>
+            <p>A Project Report by <strong>Rakesh Kumar A</strong></p>
             <p>June 2025</p>
         </div>
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#abstract">Abstract</a></li>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#methodology">Methodology</a></li>
+                <li><a href="#results">Results</a></li>
+                <li><a href="#discussion">Discussion</a></li>
+                <li><a href="#conclusion">Conclusion</a></li>
+                <li><a href="#scope">Enhancements</a></li>
+                <li><a href="#bibliography">Bibliography</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
+        <!-- Abstract Section -->
         <section id="abstract" class="container">
             <h2>Abstract</h2>
             <p>Pathogen detection is vital for diagnosing infectious diseases and safeguarding public health, necessitating rapid and accurate identification of microorganisms in clinical and environmental samples. Next-Generation Sequencing (NGS) technologies have revolutionized pathogen detection by enabling comprehensive microbial analysis directly from raw sequencing data. However, the complexity of NGS data analysis—involving quality control, read trimming, host read removal, taxonomic classification, and abundance estimation—often demands significant manual effort, increasing the risk of errors and inconsistencies. To address these challenges, we developed an automated workflow using <strong>Snakemake</strong>, a robust workflow management system that ensures reproducibility, scalability, and efficiency. The pipeline integrates tools such as FastQC, Trim Galore, Bowtie2, Kraken2, Bracken, and Krona to streamline the entire pathogen detection process. This report details the design, implementation, and potential applications of this workflow, emphasizing its critical role in modernizing bioinformatics pipelines for pathogen surveillance, clinical diagnostics, and outbreak investigations. Our approach significantly reduces manual labor, enhances data consistency, and offers a modular platform for future expansions such as functional annotation and machine learning-based pathogen classification.</p>
             <p><strong>Keywords:</strong> <strong>Pathogen Detection</strong>, <strong>Next-Generation Sequencing</strong>, <strong>Bioinformatics</strong>, <strong>Snakemake</strong>, <strong>Workflow Automation</strong>, <strong>Taxonomic Classification</strong>, <strong>Host Removal</strong>, <strong>Abundance Estimation</strong>.</p>
         </section>
 
+        <!-- Introduction Section -->
         <section id="introduction" class="container">
             <h2>Introduction</h2>
-            <p>The rapid and accurate detection of pathogens is critical for effective infectious disease management and public health interventions. Traditional culture-based methods are often slow and insufficient for identifying rare or non-culturable organisms, hindering timely responses during outbreaks. Next-Generation Sequencing (NGS) has emerged as a transformative, culture-independent technology, enabling comprehensive microbial profiling from complex samples. Its utility was clearly demonstrated during the COVID-19 pandemic for pathogen surveillance and variant tracking.</p>
-            <p>However, the immense volume of NGS data presents significant analytical challenges. The process requires intricate steps like quality control, host read removal, and taxonomic classification, which demand specialized bioinformatics skills. Current workflows are often fragmented and lack standardization, limiting reproducibility and accessibility. To overcome these hurdles, this project aimed to design and implement an automated, reproducible, and scalable pathogen detection pipeline using Snakemake. The primary objectives were to automate preprocessing, apply accurate classification algorithms, quantify pathogen abundance, generate intuitive visualizations, and validate the pipeline's performance to bridge the gap between sequencing technologies and practical, field-ready detection tools.</p>
+            <p>The rapid and accurate detection of pathogens is a cornerstone of effective infectious disease management, timely diagnosis, and the implementation of critical public health interventions. Traditional culture-based diagnostic methods, while foundational to microbiology, are often slow, labor-intensive, and inadequate for identifying fastidious, rare, or non-culturable organisms. These limitations significantly hinder timely responses, especially during infectious disease outbreaks where diagnostic speed can profoundly influence containment success and patient outcomes.</p>
+            <p>Next-Generation Sequencing (NGS) has emerged as a transformative technology, offering a culture-independent, high-throughput approach to sequence nucleic acids from complex samples. By generating millions of DNA or RNA reads, NGS enables comprehensive microbial profiling and direct pathogen identification from clinical, environmental, or metagenomic specimens. This capability is invaluable in cases where traditional methods fail, such as in the detection of novel or uncultivable pathogens. The utility of NGS was clearly demonstrated during the COVID-19 pandemic, where it played a pivotal role in pathogen surveillance, variant tracking, and outbreak source identification.</p>
+             <p>Despite its power, the immense volume and complexity of NGS data present significant analytical challenges. Processing this data requires a series of intricate bioinformatics steps—quality control, adapter trimming, host read removal, taxonomic classification, abundance estimation, and data visualization—each demanding specialized skills and substantial computational resources. To address these challenges, this project focuses on developing an automated, reproducible, and scalable pathogen detection pipeline using Snakemake, a workflow management system designed to simplify and standardize complex bioinformatics tasks.</p>
         </section>
 
+        <!-- Methodology Section -->
         <section id="methodology" class="container">
             <h2>Methodology</h2>
-            <p>The automated workflow was executed on a Linux-based system, leveraging open-source tools to process both synthetic and publicly available metagenomic datasets from the Sequence Read Archive (SRA). The pipeline ensures that only high-quality, pathogen-specific reads are used for classification.</p>
+            <p>The automated workflow was designed to systematically and efficiently process NGS data from raw reads to final visualization. Executed on a Linux-based system, the pipeline leverages a suite of robust, open-source bioinformatics tools to ensure accessibility, reproducibility, and accuracy. Each step is a critical checkpoint to ensure the fidelity of the data and the reliability of the final classification. The entire process is orchestrated by Snakemake, which automatically manages dependencies and parallelizes tasks to optimize performance.</p>
             <div class="methodology-flow">
                 <div class="step">
                     <div class="step-icon"><i class="fas fa-vials"></i></div>
@@ -411,11 +436,13 @@ This webpage is fully responsive, includes interactive elements, and is styled w
                     <div class="step-name">Visualization (Krona)</div>
                 </div>
             </div>
+             <p style="margin-top: 3rem; text-align: justify;">The process begins with <strong>FastQC</strong> to generate initial quality metrics. This step is crucial for diagnosing problems in the raw sequencing data, such as low-quality base calls (Phred score < 20), adapter contamination, or GC content bias. Based on these reports, <strong>Trim Galore</strong>, a wrapper for Cutadapt, is used to systematically remove adapter sequences and trim low-quality bases from the ends of the reads. Reads that become too short (less than 50 bp) after trimming are discarded to prevent ambiguous alignments later on. A critical step for clinical samples is <strong>Host Removal</strong>, where <strong>Bowtie2</strong> is used to align the cleaned reads against a host reference genome (e.g., human GRCh38). Reads that map to the host are removed, significantly reducing the dataset size and enriching it for microbial DNA. The core classification is then performed by <strong>Kraken2</strong>, which uses an efficient k-mer-based algorithm to rapidly assign a taxonomic label to each read by matching it against a pre-built database of known microbial genomes. While Kraken2 is fast, it can sometimes misattribute reads between closely related species. To correct this, <strong>Bracken</strong> (Bayesian Reestimation of Abundance with Kraken) is applied to the Kraken2 output. Bracken uses Bayesian statistics to estimate more accurate species-level abundances. Finally, <strong>Krona</strong> is used to generate interactive, hierarchical pie charts that allow for intuitive exploration of the microbial community composition, from broad phyla down to individual species.</p>
         </section>
 
+        <!-- Results Section -->
         <section id="results" class="container">
             <h2>Results</h2>
-            <p>The Snakemake-automated pipeline was validated using six SRA datasets, chosen due to computational constraints. Despite limitations, the workflow accurately identified dominant microbial taxa. Key findings are presented in the table and interactive visualizations below.</p>
+            <p>The Snakemake-automated pipeline was validated using six publicly accessible Sequence Read Archive (SRA) datasets, selected to represent diverse bacterial communities. This approach was chosen due to the absence of a high-performance computing cluster, which prevented the processing of large-scale clinical datasets. Despite these computational constraints (less than 16 GB of RAM and 1 TB of storage), the workflow successfully executed all steps and accurately identified the dominant microbial taxa across all six samples. The results demonstrate the pipeline's robustness and its ability to deliver meaningful insights even on modest hardware. Key findings from the taxonomic classification are summarized in the table below, followed by detailed interpretations of the visualization outputs.</p>
             
             <div class="results-table">
                 <h3>Dominant Species Detected per Sample</h3>
@@ -433,7 +460,7 @@ This webpage is fully responsive, includes interactive elements, and is styled w
                             <td>SRR33134573</td>
                             <td>Lactobacillus paracasei</td>
                             <td>0.6 million</td>
-                            <td>Non-pathogenic; probiotic</td>
+                            <td>Non-pathogenic; common probiotic</td>
                         </tr>
                         <tr>
                             <td>SRR33464308</td>
@@ -445,7 +472,7 @@ This webpage is fully responsive, includes interactive elements, and is styled w
                             <td>SRR33474028</td>
                             <td>Bacillus thuringiensis/cereus/anthracis</td>
                             <td>N/A</td>
-                            <td>Mixed pathogenic/non-pathogenic; some ambiguity</td>
+                            <td>Mixed; pathogenic and non-pathogenic strains</td>
                         </tr>
                         <tr>
                             <td>SRR33537290</td>
@@ -457,63 +484,68 @@ This webpage is fully responsive, includes interactive elements, and is styled w
                             <td>SRR33561801</td>
                             <td>Escherichia coli</td>
                             <td>0.4 million</td>
-                            <td>Potentially pathogenic</td>
+                            <td>Potentially pathogenic; strain dependent</td>
                         </tr>
                         <tr>
                             <td>SRR33569118</td>
                             <td>Vibrio parahaemolyticus</td>
                             <td>1.2 million</td>
-                            <td>Pathogenic; seafood-borne gastroenteritis</td>
+                            <td>Pathogenic; causes seafood-borne gastroenteritis</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
 
-            <h3 style="text-align: center; margin-top: 3rem;">Visualizations (Click to Enlarge)</h3>
+            <h3 style="text-align: center; margin-top: 4rem; margin-bottom: 2rem;">Detailed Visualization Analysis</h3>
+            <p>The Krona charts provide a hierarchical, multi-layered view of the taxonomic breakdown within each sample. Each concentric circle represents a different taxonomic rank (e.g., Kingdom, Phylum, Class, Order, Family, Genus, Species). The size of a wedge is proportional to the relative abundance of that taxon within the sample. Clicking on a wedge allows for interactive exploration, zooming in to reveal the composition of lower taxonomic levels. This provides a powerful tool for understanding the overall microbial landscape of a sample.</p>
+
             <div class="results-gallery">
                 <div class="gallery-item">
                     <img src="images/krona_chart_1.png" alt="Krona Chart for SRR33569118">
-                    <div class="gallery-caption"><b>SRR33569118:</b> Highlights <i>Vibrio cholerae</i> (92%) as the dominant species.</div>
+                    <div class="gallery-caption"><b>SRR33569118:</b> This chart is dominated by the genus <i>Vibrio</i>, with <i>Vibrio cholerae</i> (92%) identified as the overwhelmingly dominant species. This strong signal points to a sample likely associated with a cholera infection or environmental water source contaminated with the pathogen. The minor presence of other bacteria like <i>Vogesella sp.</i> is typical of environmental or gut samples but is statistically insignificant compared to the primary pathogen.</div>
                 </div>
                 <div class="gallery-item">
                     <img src="images/krona_chart_2.png" alt="Krona Chart for SRR33474028">
-                    <div class="gallery-caption"><b>SRR33474028:</b> Shows a mix of <i>Bacillus thuringiensis</i> (49%), <i>B. cereus</i> (36%), and <i>B. anthracis</i> (11%).</div>
+                    <div class="gallery-caption"><b>SRR33474028:</b> This sample displays a complex mixture of species from the <i>Bacillus cereus</i> group, which are genetically very similar. The pipeline identifies <i>Bacillus thuringiensis</i> (49%), <i>Bacillus cereus</i> (36%), and <i>Bacillus anthracis</i> (11%). This highlights a key challenge in metagenomics: distinguishing between closely related species. While <i>B. thuringiensis</i> is an insect pathogen and <i>B. cereus</i> causes food poisoning, the presence of reads mapping to <i>B. anthracis</i> (the causative agent of anthrax) would warrant immediate further investigation with more specific methods.</div>
                 </div>
                 <div class="gallery-item">
                     <img src="images/krona_chart_3.png" alt="Krona Chart for SRR33561801">
-                    <div class="gallery-caption"><b>SRR33561801:</b> <i>Streptococcus pneumoniae</i> (91%) dominates, indicating a pathogenic presence.</div>
+                    <div class="gallery-caption"><b>SRR33561801:</b> The microbial profile is overwhelmingly dominated by <i>Streptococcus pneumoniae</i> (91%). This bacterium is a major human pathogen responsible for pneumonia, meningitis, and sepsis. The high abundance strongly suggests a clinical sample from a patient with a pneumococcal infection. Other <i>Streptococcus</i> species like <i>S. agalactiae</i> are present at much lower levels.</div>
                 </div>
                 <div class="gallery-item">
                     <img src="images/krona_chart_4.png" alt="Krona Chart for SRR33537290">
-                    <div class="gallery-caption"><b>SRR33537290:</b> Shows <i>Salmonella enterica</i> (64%) as the primary species.</div>
+                    <div class="gallery-caption"><b>SRR33537290:</b> This chart shows a clear dominance of <i>Salmonella enterica</i> (64%), a significant foodborne pathogen that causes gastroenteritis. The presence of other gut-associated bacteria like <i>Klebsiella pneumoniae</i> (4%) and <i>Acinetobacter baumannii</i> (3%), both of which are opportunistic pathogens, suggests a sample from a gastrointestinal source, possibly during an infection.</div>
                 </div>
                  <div class="gallery-item">
                     <img src="images/krona_chart_5.png" alt="Krona Chart for SRR33464308">
-                    <div class="gallery-caption"><b>SRR33464308:</b> Dominated by <i>Staphylococcus aureus</i> (97%), a major pathogen.</div>
+                    <div class="gallery-caption"><b>SRR33464308:</b> This sample is almost entirely composed of <i>Staphylococcus aureus</i> (97%). As a major human pathogen known for causing a wide range of illnesses from skin infections to life-threatening conditions like sepsis and pneumonia, this result would be of high clinical significance, indicating a severe staphylococcal infection.</div>
                 </div>
                  <div class="gallery-item">
                     <img src="images/krona_chart_6.png" alt="Krona Chart for SRR33134573">
-                    <div class="gallery-caption"><b>SRR33134573:</b> Shows a healthy profile with <i>Lactobacillus paragasseri</i> (89%).</div>
+                    <div class="gallery-caption"><b>SRR33134573:</b> This chart indicates a healthy microbial profile, dominated by <i>Lactobacillus paragasseri</i> (89%). Lactobacilli are common members of the healthy human gut and vaginal microbiota and are often used as probiotics. The low diversity and high abundance of this non-pathogenic species suggest a non-infectious state.</div>
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item bar-plot-item">
                     <img src="images/bar_plot.png" alt="Top 10 Species Bar Plot">
-                    <div class="gallery-caption"><b>Top 10 Species per Sample:</b> Bar plot displaying estimated read counts for the most abundant species across all six SRA samples.</div>
+                    <div class="gallery-caption"><b>Top 10 Species per Sample:</b> This bar plot provides a quantitative comparison of the most abundant species across all six samples. It clearly visualizes the dominance of specific bacteria in each dataset, such as the high number of reads for <i>Vibrio parahaemolyticus</i> in SRR33569118 and <i>Staphylococcus aureus</i> in SRR33464308, reinforcing the findings from the individual Krona charts.</div>
                 </div>
             </div>
         </section>
 
+        <!-- Discussion Section -->
         <section id="discussion" class="container">
             <h2>Discussion</h2>
-            <p>This study successfully demonstrates the use of Snakemake to create a reproducible and scalable pathogen detection workflow. The pipeline effectively managed the multi-step analysis from quality control to visualization, even under significant computational constraints. The use of public SRA datasets provided a practical means to validate the pipeline's accuracy in identifying both pathogenic (e.g., <i>Staphylococcus aureus</i>, <i>Vibrio parahaemolyticus</i>) and non-pathogenic bacteria.</p>
-            <p>A key finding was the challenge in resolving closely related species, particularly within the <i>Bacillus</i> genus. This highlights a known limitation of k-mer-based classifiers and underscores the need for high-memory servers and comprehensive, strain-specific databases for higher-resolution analysis. While Krona visualizations offered intuitive insights, the hardware limitations restricted taxonomic depth. Despite these constraints, the project confirms that meaningful pathogen detection can be achieved with modest infrastructure, providing a strong foundation for future development.</p>
+            <p>This study successfully demonstrates the use of Snakemake to automate a pathogen detection workflow that integrates multiple bioinformatics tools, enabling reproducible and scalable analysis of metagenomic sequencing data under constrained computational resources. The choice of Snakemake was instrumental, as its rule-based framework allowed seamless management of dependencies, execution order, and parallelization. This greatly simplified the complex multi-step pipeline, from quality control through taxonomic classification and visualization, ensuring that each step produced reliable input for the next. The dataset selection strategy—six publicly available SRA samples with diverse microbial compositions—provided a practical testbed for evaluating pipeline performance without access to large clinical datasets. Although clinical datasets might have offered more complexity and clinical relevance, the SRA samples included both non-pathogenic and pathogenic bacterial species, allowing assessment of the pipeline's accuracy and sensitivity in detecting important taxa. This approach was pragmatic given the hardware limitations, demonstrating that meaningful pathogen detection can still be achieved on modest computing infrastructure.</p>
+            <p>Quality control steps using FastQC and TrimGalore effectively improved raw read quality by removing adapters and low-quality bases, a critical prerequisite for downstream analyses. Host read removal using Bowtie2 enriched microbial reads, increasing classification accuracy by reducing host genome contamination. Kraken2, combined with Bracken, provided rapid and relatively accurate taxonomic classification and abundance estimation, though limitations in resolving closely related species were noted. This is consistent with previous studies highlighting the challenges of k-mer-based classifiers when discriminating highly homologous taxa without strain-specific reference databases. Despite these limitations, the pipeline successfully identified key pathogenic species such as Staphylococcus aureus, Bacillus cereus, and Vibrio parahaemolyticus, demonstrating its practical utility in pathogen surveillance. Detection of Escherichia coli further illustrated its potential for identifying potentially harmful strains. Importantly, the workflow's reproducibility and scalability ensure that it can be adapted to larger datasets and integrated into public health monitoring pipelines as computational resources improve.</p>
         </section>
 
+        <!-- Conclusion Section -->
         <section id="conclusion" class="container">
             <h2>Conclusion</h2>
-            <p>We successfully implemented an automated Snakemake-based workflow for pathogen detection from metagenomic data. This system proved effective for reproducible and streamlined analysis, integrating essential bioinformatics tools from quality control to visualization. Despite computational limitations that necessitated the use of public SRA datasets instead of large clinical ones, the pipeline robustly identified key pathogenic species, including <i>Staphylococcus aureus</i>, <i>Bacillus cereus</i>, and <i>Vibrio parahaemolyticus</i>.</p>
-            <p>The workflow's automation minimized manual intervention and ensured analytical consistency. While challenges in resolving closely related species were noted, they highlight areas for future improvement with enhanced computational resources and reference databases. In summary, this project provides a flexible and scalable framework with significant potential for broader application in public health surveillance, clinical diagnostics, and microbial research, demonstrating the power of workflow automation in making complex NGS analyses more accessible.</p>
+            <p>In this project, we successfully implemented and evaluated a Snakemake-based automated workflow for pathogen detection from metagenomic sequencing data. Snakemake proved to be an effective workflow management system, enabling reproducible, scalable, and streamlined execution of complex bioinformatics analyses through the integration of various tools including FastQC, TrimGalore, host read removal, Kraken2, Bracken, and Krona. This automation minimized manual intervention and ensured that each step from quality control and read trimming to taxonomic classification and visualization was performed efficiently and accurately. Due to limitations in computational resources, we selected six publicly available SRA datasets instead of real clinical data. These datasets represented a mix of pathogenic and non-pathogenic bacterial species, providing a practical test set to evaluate pipeline performance under constrained conditions.</p>
+            <p>Despite these constraints, the pipeline successfully identified key pathogenic species such as Staphylococcus aureus, Bacillus cereus, Bacillus anthracis, Vibrio parahaemolyticus, and potentially pathogenic Escherichia coli strains. This demonstrated the workflow's robustness and applicability for preliminary pathogen surveillance and research, even without access to high-end computational infrastructure. The integration of FastQC before and after trimming verified the quality improvements in sequencing reads, while host read removal effectively filtered out host genome contamination, enriching the microbial signal. In summary, this study underscores the effectiveness of Snakemake automation for complex bioinformatics pipelines in pathogen detection and metagenomic analyses. It provides a reproducible and flexible framework that can be adapted and scaled as computational resources improve. While resource constraints limited the depth of analysis, the workflow nonetheless yielded meaningful biological insights and demonstrated potential for broader use in public health surveillance and microbial diagnostics.</p>
         </section>
 
+        <!-- Scope for Further Enhancement Section -->
         <section id="scope" class="container">
             <h2>Scope for Further Enhancement</h2>
             <p>The current pipeline provides a solid foundation, but several enhancements could significantly improve its accuracy, scope, and usability:</p>
@@ -521,11 +553,12 @@ This webpage is fully responsive, includes interactive elements, and is styled w
                 <li><strong>Computational Scaling:</strong> Migrating the workflow to a high-performance computing (HPC) cluster or cloud environment would allow processing of larger datasets and enable finer, strain-level taxonomic resolution.</li>
                 <li><strong>Expanded Databases:</strong> Integrating more comprehensive and regularly updated reference databases (e.g., RefSeq, GTDB) would improve classification accuracy and reduce ambiguity for closely related species.</li>
                 <li><strong>Functional Profiling:</strong> The pipeline could be extended to include tools for functional analysis (e.g., HUMAnN3) and the detection of antimicrobial resistance (AMR) genes (e.g., CARD), providing deeper clinical insights.</li>
-                <li><strong>Containerization:</strong> Packaging the workflow using Docker or Singularity would enhance reproducibility and simplify deployment across different systems, promoting collaboration.</li>
+                <li><strong>Containerization:</strong> Packaging the workflow using Docker or Singularity would enhance reproducibility and simplify deployment across different systems, promoting collaboration and standardization.</li>
                 <li><strong>AI and Machine Learning:</strong> Incorporating AI-driven models for pattern recognition or anomaly detection could improve the identification of novel pathogens and provide early warnings for disease outbreaks.</li>
             </ul>
         </section>
         
+        <!-- Bibliography Section -->
         <section id="bibliography" class="container">
             <h2>Bibliography</h2>
             <ul>
@@ -535,19 +568,25 @@ This webpage is fully responsive, includes interactive elements, and is styled w
                 <li>[4] Wood, D. E., Lu, J., & Langmead, B. (2019). Improved metagenomic analysis with Kraken 2. <i>Genome Biology, 20</i>(1), 257.</li>
                 <li>[5] Lu, J., Breitwieser, F. P., Thielen, P., & Salzberg, S. L. (2017). Bracken: Estimating species abundance in metagenomics data. <i>PeerJ Computer Science, 3</i>, e104.</li>
                 <li>[6] Ondov, B. D., Bergman, N. H., & Phillippy, A. M. (2011). Interactive metagenomic visualization in a Web browser. <i>BMC Bioinformatics, 12</i>, 385.</li>
+                <li>[7] Truong, D. T., et al. (2015). MetaPhlAn2 for enhanced metagenomic taxonomic profiling. <i>Nature Methods, 12</i>(10), 902-903.</li>
+                <li>[8] Franzosa, E. A., et al. (2018). Species-level functional profiling of metagenomes and metatranscriptomes. <i>Nature Methods, 15</i>(11), 962-968.</li>
+                <li>[9] Jia, B., et al. (2017). CARD 2017: expansion and model-centric curation of the comprehensive antibiotic resistance database. <i>Nucleic Acids Research, 45</i>(D1), D566-D573.</li>
+                <li>[10] Li, H., & Durbin, R. (2009). Fast and accurate short read alignment with Burrows-Wheeler transform. <i>Bioinformatics, 25</i>(14), 1754-1760.</li>
             </ul>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer>
         <p>&copy; 2025 Rakesh Kumar A</p>
         <div class="footer-links">
-            <a href="mailto:your.email@example.com">your.email@example.com</a> |
-            <a href="tel:+910000000000">+91-0000000000</a> |
-            <a href="https://github.com/your-github-profile" target="_blank">GitHub Profile</a>
+            <a href="mailto:1rakeshkumar098@gmail.com">1rakeshkumar098@gmail.com</a><span class="footer-separator"> | </span>
+            <a href="tel:+919113274413">+91 91132 74413</a><span class="footer-separator"> | </span>
+            <a href="https://github.com/Rakesh8050" target="_blank">GitHub Profile</a>
         </div>
     </footer>
     
+    <!-- Lightbox Modal -->
     <div id="lightbox" class="lightbox">
         <span class="lightbox-close">&times;</span>
         <img class="lightbox-content" id="lightbox-img">
@@ -559,7 +598,9 @@ This webpage is fully responsive, includes interactive elements, and is styled w
             document.querySelectorAll('.nav-links a').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    const targetElement = document.querySelector(this.getAttribute('href'));
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
                         behavior: 'smooth'
                     });
                 });
@@ -603,4 +644,3 @@ This webpage is fully responsive, includes interactive elements, and is styled w
     </script>
 </body>
 </html>
-```
