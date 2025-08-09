@@ -19,7 +19,7 @@ Reproducible & Scalable: Built with Snakemake to ensure consistent results and h
 ## Website & Full Documentation
 For detailed information, including setup instructions, a full description of the workflow, and access to the source code, please visit the project website:
 
-https://example.com/pathogen-pipeline-docs
+Project Website: **[Live Web page](https://rakesh8050.github.io/Next-Generation-Sequencing-Based-Pipeline-for-Rapid-Pathogen-Detection-and-Classification/)** 
 
 
 Author
