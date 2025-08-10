@@ -24,5 +24,3 @@ Project Website: **[Live Web page](https://rakesh8050.github.io/Next-Generation-
 
 Author
 Rakesh Kumar A 
-
-Garden City University, Bangalore
