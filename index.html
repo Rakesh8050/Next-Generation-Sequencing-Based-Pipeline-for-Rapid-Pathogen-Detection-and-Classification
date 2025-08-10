@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Next-Generation Sequencing-Based Pipeline for Rapid Pathogen Detection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* CSS Reset and Global Styles */
         :root {
@@ -52,14 +53,13 @@
         }
 
         .nav-links a {
-            color: white;
+            color: var(--primary-color);
             text-decoration: none;
             font-family: var(--header-font);
             font-weight: bold;
             padding: 0.5rem 0;
             position: relative;
             transition: color 0.3s;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* Add shadow for readability */
         }
 
         .nav-links a::after {
@@ -80,37 +80,6 @@
         .nav-links a:hover::after {
             width: 100%;
         }
-
-        /* Hero Section */
-        .hero {
-            background-image: linear-gradient(rgba(26, 95, 122, 0.7), rgba(26, 95, 122, 0.7)), url('images/background.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 4rem 2rem; /* Adjusted padding */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 90vh;
-        }
-
-        .hero h1 {
-            font-family: var(--header-font);
-            font-size: 2.8rem;
-            max-width: 800px;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
-        }
-
-        .hero-details {
-            font-family: var(--header-font);
-            font-size: 1.2rem;
-            margin-top: 1rem;
-        }
-        .hero-details p { margin: 0.5rem 0; }
-        .hero-details strong { color: var(--accent-color); }
 
         /* General Section Styling */
         .container {
@@ -137,7 +106,7 @@
 
         h2 {
             font-family: var(--header-font);
-            font-size: 2.5rem;
+            font-size: 2rem; /* Adjusted heading size */
             color: var(--primary-color);
             text-align: center;
             margin-bottom: 3rem;
@@ -148,6 +117,7 @@
              font-family: var(--header-font);
              color: var(--primary-color);
              margin-top: 2.5rem;
+             font-size: 1.5rem;
         }
 
         h2::after {
@@ -206,7 +176,7 @@
         /* Results Section */
         .results-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Adjusted for 2 columns */
             gap: 1.5rem;
         }
         .gallery-item {
@@ -322,14 +292,8 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-links {
-                gap: 0.5rem 1rem; /* Adjust gap for wrapping */
-            }
             .hero h1 {
                 font-size: 2.2rem;
-            }
-            .hero {
-                padding: 4rem 1rem;
             }
             .container {
                 padding: 3rem 1rem;
@@ -337,7 +301,7 @@
                 margin-bottom: 1rem;
             }
             h2 {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
             .methodology-flow {
                 flex-direction: column;
@@ -345,6 +309,9 @@
             .arrow {
                 transform: rotate(90deg);
                 margin: 1rem 0;
+            }
+            .results-gallery {
+                grid-template-columns: 1fr; /* Single column on mobile */
             }
             .bar-plot-item img {
                 max-width: 100%;
@@ -361,41 +328,53 @@
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body>
+<body class="font-sans">
 
     <!-- Hero Section -->
-    <header class="hero">
-        <h1>Next-Generation Sequencing-Based Pipeline for Rapid Pathogen Detection and Classification</h1>
-        <div class="hero-details">
-            <p>A Project Report by <strong>Rakesh Kumar A</strong></p>
-            <p>June 2025</p>
+    <header class="bg-white min-h-screen flex flex-col items-center justify-center text-center p-4 relative">
+        <div class="bg-white p-8 md:p-12 rounded-lg shadow-lg border border-gray-200 max-w-4xl">
+            <h1 class="font-bold text-4xl md:text-5xl text-slate-900">
+                Next-Generation Sequencing-Based Pipeline for Rapid Pathogen Detection and Classification
+            </h1>
+            <p class="mt-4 text-xl text-slate-700">
+                Major Project – Master of Science in Bioinformatics
+            </p>
+            <hr class="my-6 border-gray-300 w-1/2 mx-auto">
+            <p class="text-lg text-slate-700">Rakesh Kumar A</p>
+            <p class="text-lg text-slate-700 mt-2">June 2025</p>
         </div>
-        <!-- Navigation Bar -->
-        <nav class="navbar">
-            <ul class="nav-links">
-                <li><a href="#abstract">Abstract</a></li>
-                <li><a href="#introduction">Introduction</a></li>
-                <li><a href="#methodology">Methodology</a></li>
-                <li><a href="#results">Results</a></li>
-                <li><a href="#discussion">Discussion</a></li>
-                <li><a href="#conclusion">Conclusion</a></li>
-                <li><a href="#scope">Enhancements</a></li>
-                <li><a href="#bibliography">Bibliography</a></li>
-            </ul>
-        </nav>
+        <a href="#abstract" id="scroll-down-arrow" class="absolute bottom-10 text-slate-700 animate-bounce">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+        </a>
     </header>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar sticky top-0 bg-white/80 backdrop-blur-sm shadow-md">
+        <ul class="nav-links">
+            <li><a href="#abstract">Abstract</a></li>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#methodology">Methodology</a></li>
+            <li><a href="#results">Results</a></li>
+            <li><a href="#discussion">Discussion</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+            <li><a href="#scope">Enhancements</a></li>
+            <li><a href="#bibliography">Bibliography</a></li>
+        </ul>
+    </nav>
 
     <main>
         <!-- Abstract Section -->
         <section id="abstract" class="container">
-            <h2>Abstract</h2>
+            <h2 class="text-2xl font-semibold text-blue-600"> Abstract</h2>
             <p>Pathogen detection is vital for diagnosing infectious diseases and safeguarding public health, necessitating rapid and accurate identification of microorganisms in clinical and environmental samples. Next-Generation Sequencing (NGS) technologies have revolutionized pathogen detection by enabling comprehensive microbial analysis directly from raw sequencing data. However, the complexity of NGS data analysis—involving quality control, read trimming, host read removal, taxonomic classification, and abundance estimation—often demands significant manual effort, increasing the risk of errors and inconsistencies. To address these challenges, we developed an automated workflow using <strong>Snakemake</strong>, a robust workflow management system that ensures reproducibility, scalability, and efficiency. The pipeline integrates tools such as FastQC, Trim Galore, Bowtie2, Kraken2, Bracken, and Krona to streamline the entire pathogen detection process. This report details the design, implementation, and potential applications of this workflow, emphasizing its critical role in modernizing bioinformatics pipelines for pathogen surveillance, clinical diagnostics, and outbreak investigations. Our approach significantly reduces manual labor, enhances data consistency, and offers a modular platform for future expansions such as functional annotation and machine learning-based pathogen classification.</p>
             <p><strong>Keywords:</strong> <strong>Pathogen Detection</strong>, <strong>Next-Generation Sequencing</strong>, <strong>Bioinformatics</strong>, <strong>Snakemake</strong>, <strong>Workflow Automation</strong>, <strong>Taxonomic Classification</strong>, <strong>Host Removal</strong>, <strong>Abundance Estimation</strong>.</p>
         </section>
 
         <!-- Introduction Section -->
         <section id="introduction" class="container">
-            <h2>Introduction</h2>
+           <h2 class="text-2xl font-semibold text-blue-600">Introduction</h2>
             <p>The rapid and accurate detection of pathogens is a cornerstone of effective infectious disease management, timely diagnosis, and the implementation of critical public health interventions. Traditional culture-based diagnostic methods, while foundational to microbiology, are often slow, labor-intensive, and inadequate for identifying fastidious, rare, or non-culturable organisms. These limitations significantly hinder timely responses, especially during infectious disease outbreaks where diagnostic speed can profoundly influence containment success and patient outcomes.</p>
             <p>Next-Generation Sequencing (NGS) has emerged as a transformative technology, offering a culture-independent, high-throughput approach to sequence nucleic acids from complex samples. By generating millions of DNA or RNA reads, NGS enables comprehensive microbial profiling and direct pathogen identification from clinical, environmental, or metagenomic specimens. This capability is invaluable in cases where traditional methods fail, such as in the detection of novel or uncultivable pathogens. The utility of NGS was clearly demonstrated during the COVID-19 pandemic, where it played a pivotal role in pathogen surveillance, variant tracking, and outbreak source identification.</p>
              <p>Despite its power, the immense volume and complexity of NGS data present significant analytical challenges. Processing this data requires a series of intricate bioinformatics steps—quality control, adapter trimming, host read removal, taxonomic classification, abundance estimation, and data visualization—each demanding specialized skills and substantial computational resources. To address these challenges, this project focuses on developing an automated, reproducible, and scalable pathogen detection pipeline using Snakemake, a workflow management system designed to simplify and standardize complex bioinformatics tasks.</p>
@@ -403,7 +382,7 @@
 
         <!-- Methodology Section -->
         <section id="methodology" class="container">
-            <h2>Methodology</h2>
+            <h2 class="text-2xl font-semibold text-blue-600"> Methodology</h2>
             <p>The automated workflow was designed to systematically and efficiently process NGS data from raw reads to final visualization. Executed on a Linux-based system, the pipeline leverages a suite of robust, open-source bioinformatics tools to ensure accessibility, reproducibility, and accuracy. Each step is a critical checkpoint to ensure the fidelity of the data and the reliability of the final classification. The entire process is orchestrated by Snakemake, which automatically manages dependencies and parallelizes tasks to optimize performance.</p>
             <div class="methodology-flow">
                 <div class="step">
@@ -441,7 +420,7 @@
 
         <!-- Results Section -->
         <section id="results" class="container">
-            <h2>Results</h2>
+            <h2 class="text-2xl font-semibold text-blue-600"> Results</h2>
             <p>The Snakemake-automated pipeline was validated using six publicly accessible Sequence Read Archive (SRA) datasets, selected to represent diverse bacterial communities. This approach was chosen due to the absence of a high-performance computing cluster, which prevented the processing of large-scale clinical datasets. Despite these computational constraints (less than 16 GB of RAM and 1 TB of storage), the workflow successfully executed all steps and accurately identified the dominant microbial taxa across all six samples. The results demonstrate the pipeline's robustness and its ability to deliver meaningful insights even on modest hardware. Key findings from the taxonomic classification are summarized in the table below, followed by detailed interpretations of the visualization outputs.</p>
             
             <div class="results-table">
@@ -533,21 +512,21 @@
 
         <!-- Discussion Section -->
         <section id="discussion" class="container">
-            <h2>Discussion</h2>
+            <h2 class="text-2xl font-semibold text-blue-600"> Discussion</h2>
             <p>This study successfully demonstrates the use of Snakemake to automate a pathogen detection workflow that integrates multiple bioinformatics tools, enabling reproducible and scalable analysis of metagenomic sequencing data under constrained computational resources. The choice of Snakemake was instrumental, as its rule-based framework allowed seamless management of dependencies, execution order, and parallelization. This greatly simplified the complex multi-step pipeline, from quality control through taxonomic classification and visualization, ensuring that each step produced reliable input for the next. The dataset selection strategy—six publicly available SRA samples with diverse microbial compositions—provided a practical testbed for evaluating pipeline performance without access to large clinical datasets. Although clinical datasets might have offered more complexity and clinical relevance, the SRA samples included both non-pathogenic and pathogenic bacterial species, allowing assessment of the pipeline's accuracy and sensitivity in detecting important taxa. This approach was pragmatic given the hardware limitations, demonstrating that meaningful pathogen detection can still be achieved on modest computing infrastructure.</p>
             <p>Quality control steps using FastQC and TrimGalore effectively improved raw read quality by removing adapters and low-quality bases, a critical prerequisite for downstream analyses. Host read removal using Bowtie2 enriched microbial reads, increasing classification accuracy by reducing host genome contamination. Kraken2, combined with Bracken, provided rapid and relatively accurate taxonomic classification and abundance estimation, though limitations in resolving closely related species were noted. This is consistent with previous studies highlighting the challenges of k-mer-based classifiers when discriminating highly homologous taxa without strain-specific reference databases. Despite these limitations, the pipeline successfully identified key pathogenic species such as Staphylococcus aureus, Bacillus cereus, and Vibrio parahaemolyticus, demonstrating its practical utility in pathogen surveillance. Detection of Escherichia coli further illustrated its potential for identifying potentially harmful strains. Importantly, the workflow's reproducibility and scalability ensure that it can be adapted to larger datasets and integrated into public health monitoring pipelines as computational resources improve.</p>
         </section>
 
         <!-- Conclusion Section -->
         <section id="conclusion" class="container">
-            <h2>Conclusion</h2>
+            <h2 class="text-2xl font-semibold text-blue-600"> Conclusion</h2>
             <p>In this project, we successfully implemented and evaluated a Snakemake-based automated workflow for pathogen detection from metagenomic sequencing data. Snakemake proved to be an effective workflow management system, enabling reproducible, scalable, and streamlined execution of complex bioinformatics analyses through the integration of various tools including FastQC, TrimGalore, host read removal, Kraken2, Bracken, and Krona. This automation minimized manual intervention and ensured that each step from quality control and read trimming to taxonomic classification and visualization was performed efficiently and accurately. Due to limitations in computational resources, we selected six publicly available SRA datasets instead of real clinical data. These datasets represented a mix of pathogenic and non-pathogenic bacterial species, providing a practical test set to evaluate pipeline performance under constrained conditions.</p>
             <p>Despite these constraints, the pipeline successfully identified key pathogenic species such as Staphylococcus aureus, Bacillus cereus, Bacillus anthracis, Vibrio parahaemolyticus, and potentially pathogenic Escherichia coli strains. This demonstrated the workflow's robustness and applicability for preliminary pathogen surveillance and research, even without access to high-end computational infrastructure. The integration of FastQC before and after trimming verified the quality improvements in sequencing reads, while host read removal effectively filtered out host genome contamination, enriching the microbial signal. In summary, this study underscores the effectiveness of Snakemake automation for complex bioinformatics pipelines in pathogen detection and metagenomic analyses. It provides a reproducible and flexible framework that can be adapted and scaled as computational resources improve. While resource constraints limited the depth of analysis, the workflow nonetheless yielded meaningful biological insights and demonstrated potential for broader use in public health surveillance and microbial diagnostics.</p>
         </section>
 
         <!-- Scope for Further Enhancement Section -->
         <section id="scope" class="container">
-            <h2>Scope for Further Enhancement</h2>
+            <h2 class="text-2xl font-semibold text-blue-600"> Scope for Further Enhancement</h2>
             <p>The current pipeline provides a solid foundation, but several enhancements could significantly improve its accuracy, scope, and usability:</p>
             <ul>
                 <li><strong>Computational Scaling:</strong> Migrating the workflow to a high-performance computing (HPC) cluster or cloud environment would allow processing of larger datasets and enable finer, strain-level taxonomic resolution.</li>
@@ -560,7 +539,7 @@
         
         <!-- Bibliography Section -->
         <section id="bibliography" class="container">
-            <h2>Bibliography</h2>
+            <h2 class="text-2xl font-semibold text-blue-600"> Bibliography</h2>
             <ul>
                 <li>[1] Köster, J., & Rahmann, S. (2012). Snakemake—a scalable bioinformatics workflow engine. <i>Bioinformatics, 28</i>(19), 2520-2522.</li>
                 <li>[2] Andrews, S. (2010). <i>FastQC: A quality control tool for high throughput sequence data</i>.</li>
@@ -571,7 +550,7 @@
                 <li>[7] Truong, D. T., et al. (2015). MetaPhlAn2 for enhanced metagenomic taxonomic profiling. <i>Nature Methods, 12</i>(10), 902-903.</li>
                 <li>[8] Franzosa, E. A., et al. (2018). Species-level functional profiling of metagenomes and metatranscriptomes. <i>Nature Methods, 15</i>(11), 962-968.</li>
                 <li>[9] Jia, B., et al. (2017). CARD 2017: expansion and model-centric curation of the comprehensive antibiotic resistance database. <i>Nucleic Acids Research, 45</i>(D1), D566-D573.</li>
-                <li>[10] Li, H., & Durbin, R. (2009). Fast and accurate short read alignment with Burrows-Wheeler transform. <i>Bioinformatics, 25</i>(14), 1754-1760.</li>
+                <li>[10] Li, H., & Durbin, R. (2010). Fast and accurate short read alignment with Burrows-Wheeler transform. <i>Bioinformatics, 25</i>(14), 1754-1760.</li>
             </ul>
         </section>
     </main>
